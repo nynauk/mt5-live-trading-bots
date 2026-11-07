@@ -27,6 +27,18 @@ Most of `asia_sweep_htf_bot.py`'s length is the plumbing that a backtest does no
   cancelled if price reaches the target before they fill.
 - **Daily stop.** Trading stops for the day after three losses.
 
+## Earlier scripts (early 2025)
+
+[`early-2025/`](early-2025) holds the first MetaTrader 5 scripts I wrote, before the bots above. They are simpler
+and kept as a record of where the later work started.
+
+| Script | What it does |
+|---|---|
+| `asia_sweep_backtest.py` | Backtests an Asia-range sweep (03:00 to 09:00 UTC) on EURUSD and GBPUSD at 3 and 5 minutes from 1 October 2024, entering on the first sweep with the stop 1.5 ATR beyond the Asia extreme and a 3R target (the section heading in the code says RR = 2, but the code uses 3), closing by 12:00 UTC. Reports the better timeframe per pair, win rate, longest streaks, average trade length, maximum drawdown and the best and worst weekdays, and plots the latest trade |
+| `smc_week_chart.py` | Pulls the last 7 days of EURUSD at 3 minutes and 4 hours, marks simple 4-hour order blocks, the daily Asia range and 3-minute FVGs, and draws the week as an interactive Plotly chart |
+| `fvg_live_bot.py` | A live loop over 7 major pairs on the 3-minute chart that looks for a change of character or market structure shift leaving a three-candle FVG, then places a market order sized to risk $1,000 (1% of a $100,000 account), capped at 1 lot, with one setup per pair per day |
+| `manual_trade_console.py` | A text console for placing trades by command (buy, sell, limit and stop orders, moving the stop or target, a pip calculator and a list of open trades) across 42 FX pairs, commodities and indices |
+
 ## Run
 
 ```bash
