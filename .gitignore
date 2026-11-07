@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+*.log
+state*.json
+.venv/
+.idea/
